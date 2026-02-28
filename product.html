@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Product Details</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>PARANOIA</h1>
+    <a href="index.html">← Back to Store</a>
+</header>
+
+<div class="product-details" id="product-details"></div>
+
+<script>
+const products = {
+    "leather-jacket": {
+        name: "Leather Jacket",
+        price: 1800,
+        image: "images/jacket1.jpg",
+        description: "Premium black leather jacket. Heavy winter quality.",
+        sizes: ["S","M","L","XL"]
+    },
+    "winter-jacket": {
+        name: "Winter Jacket",
+        price: 1500,
+        image: "images/jacket2.jpg",
+        description: "Warm winter jacket perfect for cold days.",
+        sizes: ["S","M","L","XL"]
+    },
+    "sweat-pants": {
+        name: "Sweat Pants",
+        price: 500,
+        image: "images/pants1.jpg",
+        description: "Comfortable cotton sweatpants.",
+        sizes: ["S","M","L","XL"]
+    },
+    "cargo-pants": {
+        name: "Cargo Pants",
+        price: 800,
+        image: "images/pants2.jpg",
+        description: "Trendy cargo pants with side pockets.",
+        sizes: ["S","M","L","XL"]
+    },
+    "socks": {
+        name: "Socks",
+        price: 150,
+        image: "images/acc1.jpg",
+        description: "High quality cotton socks.",
+        sizes: []
+    },
+    "cap": {
+        name: "Cap",
+        price: 250,
+        image: "images/acc2.jpg",
+        description: "Stylish streetwear cap.",
+        sizes: []
+    }
+};
+
+// قراءة id المنتج من الرابط
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+const product = products[id];
+
+// عرض المنتج
+if(product){
+    const sizeOptions = product.sizes.map(s => `<option>${s}</option>`).join("");
+    document.getElementById("product-details").innerHTML = `
+        <img src="${product.image}" alt="${product.name}" width="350">
+        <div class="product-info">
+            <h2>${product.name}</h2>
+            <p>${product.description}</p>
+            <h3>${product.price} EGP</h3>
+            ${product.sizes.length > 0 ? `<label>Size:</label>
+            <select>${sizeOptions}</select>` : ""}
+            <button>Add To Cart</button>
+        </div>
+    `;
+}else{
+    document.getElementById("product-details").innerHTML = "<p>Product not found.</p>";
+}
+</script>
+
+</body>
+</html>
