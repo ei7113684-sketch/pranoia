@@ -182,3 +182,73 @@ footer {
 .product-info button:hover {
     background: #444;
 }
+/* CART ITEMS */
+
+.cart-item {
+    background: #f4f4f4;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.remove-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+/* TOTAL */
+
+#total {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* CHECKOUT BUTTON */
+
+.checkout-btn {
+    background: black;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.checkout-btn:hover {
+    background: #444;
+}
+
+/* CHECKOUT PAGE */
+
+form {
+    width: 400px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form input,
+form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+form button {
+    background: black;
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #444;
+}
